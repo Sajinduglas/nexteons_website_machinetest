@@ -182,6 +182,7 @@ class StudentsModel{
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class StudentsModel {
   final String? firstname;
@@ -240,22 +241,22 @@ final List<StudentsModel> items = [
   StudentsModel(
     district: "asdasdas",
     country: "sgchaB",
-    phn: "hachascjcsb",
+    phn: "sajinsaji",
     image: "assets/images/image1.jpeg",
   ),
   StudentsModel(
-    district: "wudhiqu",
+    district: "sajinsaji",
     image: "assets/images/image1.jpeg",
   ),
   StudentsModel(
-    district: "wqdiwd",
-    country: "ajksdkajsn",
-    phn: "oiudqoij921",
-    id: "KAslk",
-    pincode: "uhcis",
-    email: "kjshcasjnas",
-    lastname: "skjcjkanx",
-    firstname: "skcjajn",
+    district: "sajindffdfdfdf",
+    country: "sajindffdfdfdf",
+    phn: "sajindffdfdfdf",
+    id: "sajindffdfdfdf",
+    pincode: "sajindffdfdfdf",
+    email: "amos",
+    lastname: "amos",
+    firstname: "amos",
     image: "assets/images/image1.jpeg",
   ),
   StudentsModel(
@@ -296,13 +297,15 @@ class UniformCard extends StatelessWidget {
               child: Row(
                 children: [
                   if (data[i].image != null)
-                    Image.asset(
-                      data[i].image!,
-                      width: size.width*0.2,
-                      height: size.height*0.2,
-                      fit: BoxFit.cover,
+                    Expanded(
+                      child: Image.asset(
+                        data[i].image!,
+                        width: size.width*0.2,
+                        height: size.height*0.2,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  SizedBox(width: 10),
+                  SizedBox(width: size.width*0.025),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -395,3 +398,11 @@ double calculateMaxCardHeight(List<StudentsModel> data, double fSize) {
   print("====$maxHeight");
   return maxHeight;
 }
+
+
+
+
+
+
+
+

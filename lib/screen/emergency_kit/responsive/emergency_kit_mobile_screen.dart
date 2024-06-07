@@ -13,6 +13,15 @@ class EmergencyKitMobileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+          print('Floating Action Button Pressed');
+        },
+        backgroundColor: ColorTheme.lightBlue,
+        child: Icon(Icons.add),
+      ),
       body: Center(
         child: Column(
           children: [
@@ -47,36 +56,44 @@ class EmergencyKitMobileScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      Text(
-                        "Emergency kit",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30,
+                      Expanded(
+                        child: Text(
+                          "Emergency kit",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 25,
+                          ),
                         ),
                       ),
-                      Text(
-                        'We know migraines at school can be a real bummer, but you\'re a superhero for handling ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                      Expanded(
+                        child: Text(
+                          'We know migraines at school can be a real bummer, but you\'re a superhero for handling ',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
-                      Text(
-                        ' them like a champ!',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                      Expanded(
+                        child: Text(
+                          ' them like a champ!',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
-                      Text(
-                        'Your emergency kit is here to save the day and make you feel better',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                      Expanded(
+                        child: Text(
+                          'Your emergency kit is here to save the day and make you feel better',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
+                          ),
                         ),
                       ),
                     ],
@@ -99,30 +116,35 @@ class EmergencyKitMobileScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       var kit =
                           controller.emergencyKitModel.value.data!.list![index];
-                      return Container(
-                        padding: const EdgeInsets.all(12.0),
-                        color: Colors.grey,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  kit.name ?? 'No name',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 16,
-                                  ),
+                      return Card(
+                        child: Container(
+                          padding: const EdgeInsets.all(25.0),
+                          // color: Colors.grey,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.home),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      kit.name ?? 'No name',
+                                      style: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4.0),
+                                    Text(
+                                      kit.details ?? 'No details',
+                                      style: const TextStyle(fontSize: 14),
+                                    ),
+                                  ],
                                 ),
-                                const SizedBox(height: 4.0),
-                                Text(
-                                  kit.details ?? 'No details',
-                                  style: const TextStyle(fontSize: 14),
-                                ),
-                              ],
-                            ),
-                          ],
+                              ),
+                            ],
+                          ),
                         ),
                       );
                     },
